@@ -61,18 +61,17 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 // Fetch the canvas element created in index.html, replace 'canvas' with the id of your canvas
 const canvas = document.getElementById('cvs');
 
-// Create a WebGLRenderer and set its width and height
+// Create a WebGLRenderer
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
     antialias: true,
-    alpha: true, // enable canvas transparency
+    alpha: true, // canvas transparency
 });
  
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-// make the background fully transparent
+// background fully transparent
 renderer.setClearColor(0x000000, 0);
-// ensure the canvas element CSS stays transparent
 renderer.domElement.style.background = 'transparent';
 
 const geometry = new THREE.BoxGeometry();
@@ -83,10 +82,10 @@ const cube = new THREE.Mesh( geometry, material );
 camera.position.z = 4;
 const controls = new OrbitControls(camera, renderer.domElement);
 
-// --- ADDED: renderer color encoding so colors look correct ---
+// Enable sRGB encoding for correct color rendering
 renderer.outputEncoding = THREE.sRGBEncoding;
 
-// --- ADDED: basic lighting so MTL/Phong materials are visible ---
+// Add light and mats
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(ambientLight);
 
@@ -94,7 +93,7 @@ const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
 directionalLight.position.set(5, 10, 7.5);
 scene.add(directionalLight);
 
-// ----------------- ADDED: load .mtl then .obj -----------------
+// ----------------- load .mtl then .obj -----------------
 const manager = new THREE.LoadingManager();
 manager.onLoad = function () {
     console.log('All resources loaded.');
@@ -161,9 +160,8 @@ noteLoader.load('keynote.mtl',
             (object) => {
                 // Keep template out of the scene. We'll clone it when spawning notes.
                 noteTemplate = object;
-                // Make template reasonably small (we'll scale clones)
+                // Make template reasonably small, clones will be scaled.
                 noteTemplate.scale.set(0.02, 0.02, 0.02);
-                // Ensure geometry uses standard material so we can recolor; convert materials if needed later when cloning
                 console.log('Keynote template chargé et prêt.');
             },
             undefined,
