@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My ThreeJs Project</title>
+
+    <!-- Import the css file -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- You can change 0.160.0 to any other availble Three.js version to match your requirements -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+
+    
+    <div class="ligne-horizontal-1"></div>
+    <div class="ligne-vertical-1"></div>
+    <div class="ligne-horizontal-2"></div>
+    <div class="ligne-vertical-2"></div>
+    <div class="ligne-horizontal-3"></div>
+    <div class="ligne-vertical-3"></div>
+
+    <h1 id="main-title"><a href="http://useless-systems.com" target="_blank">> useless-systems <</a></h1>
+    <!-- This canvas is the one you will use to display your Three.js code. -->
+    <canvas id="cvs"></canvas>
+    <button id="playButton">Play Music</button>
+
+    <!-- The import should happen after creating the other HTML elements since you will be importing them -->
+    <script type="module" src="./script.js"></script>
+</body>
+</html>

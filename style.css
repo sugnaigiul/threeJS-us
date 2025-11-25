@@ -1,0 +1,131 @@
+@font-face {
+    font-family: 'F25 Bank Printer';
+    src: url('./fonts/F25_Bank_Printer.ttf') format('truetype'),
+         url('./fonts/F25_Bank_Printer.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'F25 Bank Printer';
+    src: url('./fonts/F25_Bank_Printer_Bold.ttf') format('truetype'),
+         url('./fonts/F25_Bank_Printer_Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    background: transparent;
+}
+
+head, body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Optional: page background so transparent canvas shows content beneath */
+body {
+    background-color: white;
+    align-items: center;
+}
+
+#main-title {
+    position: fixed;
+    top: 19px; /* Adjusted to be higher */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* Ensure it's above the canvas */
+}
+
+#main-title a {
+    font-family: 'F25 Bank Printer', sans-serif; /* Apply the new font */
+    font-size: 1.2em; /* Make it significantly bigger */
+    color: black;
+    text-decoration: none;
+    font-weight: bold; /* Use the bold version of the font */
+    cursor: pointer;
+}
+
+canvas {
+    display: block;
+    background: transparent; /* ensure canvas itself is transparent */
+}
+
+#cvs {
+    /* let the renderer control the canvas size; make it fill the viewport */
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#playButton {
+    position: fixed;
+    bottom: 20px;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'F25 Bank Printer', sans-serif; /* Apply the new font */
+}
+
+#playButton:hover {
+    background-color: #ff8533;
+}
+
+.ligne-horizontal-1 {
+  position: fixed; /* Fixe la ligne horizontale */
+  top: 10%; /* Position verticale au milieu de la page */
+  width: 100%; /* Prend toute la largeur de la page */
+  height: 1px; /* Épaisseur de la ligne horizontale */
+  background-color: black; /* Couleur de la ligne horizontale, ajustez selon vos préférences */
+  z-index: -1;
+}
+.ligne-vertical-1 {
+  position: fixed; /* Fixe la ligne verticale */
+  left: 10%; /* Position horizontale au milieu de la page */
+  height: 100%; /* Prend toute la hauteur de la page */
+  width: 1px; /* Épaisseur de la ligne verticale */
+  background-color: black; /* Couleur de la ligne verticale, ajustez selon vos préférences */
+  z-index: -1;
+}
+.ligne-horizontal-2 {
+  position: fixed; /* Fixe la ligne horizontale */
+  top: 50%; /* Position verticale au milieu de la page */
+  width: 100%; /* Prend toute la largeur de la page */
+  height: 1px; /* Épaisseur de la ligne horizontale */
+  background-color: black; /* Couleur de la ligne horizontale, ajustez selon vos préférences */
+  z-index: -1;
+}
+.ligne-vertical-2 {
+  position: fixed; /* Fixe la ligne verticale */
+  left: 50%; /* Position horizontale au milieu de la page */
+  height: 100%; /* Prend toute la hauteur de la page */
+  width: 1px; /* Épaisseur de la ligne verticale */
+  background-color: black; /* Couleur de la ligne verticale, ajustez selon vos préférences */
+  z-index: -1;
+}
+.ligne-horizontal-3 {
+  position: fixed; /* Fixe la ligne horizontale */
+  top: 90%; /* Position verticale au milieu de la page */
+  width: 100%; /* Prend toute la largeur de la page */
+  height: 1px; /* Épaisseur de la ligne horizontale */
+  background-color: black; /* Couleur de la ligne horizontale, ajustez selon vos préférences */
+  z-index: -1;
+}
+.ligne-vertical-3 {
+  position: fixed; /* Fixe la ligne verticale */
+  left: 90%; /* Position horizontale au milieu de la page */
+  height: 100%; /* Prend toute la hauteur de la page */
+  width: 1px; /* Épaisseur de la ligne verticale */
+  background-color: black; /* Couleur de la ligne verticale, ajustez selon vos préférences */
+  z-index: -1;
+}
